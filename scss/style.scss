@@ -1,3 +1,6 @@
+@use "utilities";
+@use "config" as config;
+@use "btnConfig" as btnConfig;
 
 * {
   box-sizing: border-box;
@@ -6,8 +9,8 @@
 }
 
 body {
-  background-color: $light-color;
-  font-family: $font-stack;
+  background-color: config.$light-color;
+  font-family: config.$font-stack;
   line-height: 1;
 }
 
@@ -28,16 +31,62 @@ a {
   // 1. $variables
   // 2. nesting (dont forget about the ampersand (&) parent selector!)
   // 3. At-Rules
+
+  @include utilities.set-bg(config.$primary-color);
+
+  nav {
+    display: flex;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: space-around;
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      width: 50%;
+    }
+
+    li {
+      display: inline;
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: 
+    }
+  }
+
+  .hero-content {
+    display: flex;
+    height: 600px;
+
+    div {
+      margin: auto 0;
+    }
+
+  }
+}
+
+.banner {
+  display: inline;
 }
 
 // This code is related to some of the aspects of SCSS we have yet to cover.
 // While you don't have to mess with it, it would be advisable to attempt to understand its functionality.
-$spaceamounts: (1,2,3,4,5);
+$spaceamounts: (
+  1,
+  2,
+  3,
+  4,
+  5
+);
 
 @each $space in $spaceamounts {
   .m-#{$space} {
     margin: #{$space}rem;
   }
+
   .my-#{$space} {
     margin: #{$space}rem 0;
   }
@@ -45,6 +94,7 @@ $spaceamounts: (1,2,3,4,5);
   .p-#{$space} {
     padding: #{$space}rem;
   }
+
   .py-#{$space} {
     padding: #{$space}rem 0;
   }
