@@ -1,6 +1,6 @@
 @use "utilities";
-@use "config" as config;
-@use "btnConfig" as btnConfig;
+@use "config";
+@use "btnConfig";
 
 * {
   box-sizing: border-box;
@@ -53,7 +53,7 @@ a {
 
     a {
       text-decoration: none;
-      color: 
+      color: utilities.text-color-picker(config.$primary-color)
     }
   }
 
@@ -63,6 +63,10 @@ a {
 
     div {
       margin: auto 0;
+
+      h1 {
+        font-size: 3em;
+      }
     }
 
   }
